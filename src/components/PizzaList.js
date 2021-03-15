@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux";
 import { selectUser } from "../store/user/selectors";
 import { selectPizzas } from "../store/pizzas/selectors";
+import AddPizzaForm from "./AddPizzaForm";
 
 export default function PizzaList() {
   const user = useSelector(selectUser);
@@ -16,6 +17,7 @@ export default function PizzaList() {
         There are <strong>{pizzas.length}</strong> pizzas in total:
       </p>
       <p>TODO: the list of pizzas</p>
+      <AddPizzaForm />
       <ul>
         {pizzas.map((pizza) => (
           <li key={pizza.id}>

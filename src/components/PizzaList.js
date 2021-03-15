@@ -20,7 +20,7 @@ export default function PizzaList() {
         {pizzas.map((pizza) => (
           <li key={pizza.id}>
             <strong>{pizza.name}</strong>({pizza.description}) <br />
-            <em>Bought {pizza.bought} times</em>
+            <em>Bought {pizza.bought}</em>
           </li>
         ))}
       </ul>

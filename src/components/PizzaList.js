@@ -21,6 +21,7 @@ export default function PizzaList() {
       <ul>
         {pizzas.map((pizza) => (
           <li key={pizza.id}>
+            <button>{user.favorites.includes(pizza.id) ? "♥" : "♡"}</button>
             <strong>{pizza.name}</strong>({pizza.description}) <br />
             <em>Bought {pizza.bought}</em>
           </li>

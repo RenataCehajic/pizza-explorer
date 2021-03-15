@@ -1,9 +1,9 @@
-import React from "react";
+import PizzaList from "./components/PizzaList";
 
 function App() {
   return (
     <div className="App">
-      <p>Hi from pizza-explorer</p>
+      <PizzaList />
     </div>
   );
 }

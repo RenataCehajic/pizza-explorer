@@ -7,15 +7,19 @@ export default function AddPizzaForm() {
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [ingredients, setIngredients] = useState("");
 
   const submit = (event) => {
     // to make sure that the form does not redirect (which is normal browser behavior)
     event.preventDefault();
 
     // console.log("new pizza", name, description);
-    dispatch(addPizza({ name, description }));
+    dispatch(
+      addPizza({ name, description, ingredients: ingredients.split(",") })
+    );
     setName("");
     setDescription("");
+    setIngredients("");
   };
 
   return (
@@ -38,6 +42,16 @@ export default function AddPizzaForm() {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+      </p>
+      <p>
+        <label>
+          Ingredients:{" "}
+          <input
+            type="text"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
           />
         </label>
       </p>

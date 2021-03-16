@@ -22,3 +22,26 @@ export const selectPizzas = (reduxState) => {
 //     return mostBought.bought >= nextPizza.bought ? mostBought : nextPizza;
 //   });
 // };
+
+export const selectIngredients = (reduxState) => {
+  // declare an empty array - all ingredients
+  const allIngredients = [];
+  // loop over all pizzas
+  reduxState.pizzas.allPizzas.forEach((pizza) => {
+    pizza.ingredients.forEach((ingredient) => {
+      if (!allIngredients.includes(ingredient)) {
+        allIngredients.push(ingredient);
+      }
+    });
+  });
+  return allIngredients;
+  //for each pizza loop over the ingredients of the pizza
+  // for each ingredient check whether the ingredient is part of all ingredients => if not, add it
+  // return all ingredients
+};
+
+export const selectPizzasWithThisIngredient = (ingredient) => (reduxState) => {
+  return reduxState.pizzas.allPizzas.filter((pizza) =>
+    pizza.ingredients.includes(ingredient)
+  );
+};
